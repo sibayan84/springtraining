@@ -9,7 +9,7 @@ import com.learn.spring.SpringHelloWorld.aop.SchoolReception;
 public class AOP {
 
 	public static void main(String[] args) {
-		System.out.println("Entered AOP@main....");
+		System.out.println("Entered AOP-main");
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("aop.xml");
 
 		System.out.println(context);
