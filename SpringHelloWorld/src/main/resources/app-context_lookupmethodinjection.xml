@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="bus" class="com.learn.spring.SpringHelloWorld.bean.Bus">
+		<lookup-method name="myBusEngine" bean="e1" />
+	</bean>
+
+	<bean id="e1" class="com.learn.spring.SpringHelloWorld.bean.Engine">
+		<property name="name" value="Volvo Bus Engine" />
+	</bean>
+
+	<!-- for truck concrete class provide look-up method di -->
+
+	<bean id="truck" class="com.learn.spring.SpringHelloWorld.bean.Truck">
+		<lookup-method name="myTruckEngine" bean="e2" />
+	</bean>
+
+	<bean id="e2" class="com.learn.spring.SpringHelloWorld.bean.Engine">
+		<property name="name" value="TATA Truck Engine" />
+	</bean>
+	
+</beans>

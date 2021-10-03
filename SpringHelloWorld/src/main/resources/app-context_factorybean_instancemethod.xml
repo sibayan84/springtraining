@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="instance_addressFactory"
+		class="com.learn.spring.SpringHelloWorld.bean.AddressFactoryBeanInstanceMethod" />
+
+	<!-- provide arguments to our instance factory method using the constructor-arg element  -->
+	<bean id="address" factory-bean="instance_addressFactory"
+		factory-method="createInstance">
+		<constructor-arg index="0" value="Max Muller Road" />
+		<constructor-arg index="1" value="Stutgart" />
+		<constructor-arg index="2" value="Baden-Württemberg" />
+		<constructor-arg index="3" value="Germany" />
+
+	</bean>
+
+
+
+</beans>

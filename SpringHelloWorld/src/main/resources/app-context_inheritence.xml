@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="s1" class="com.learn.spring.SpringHelloWorld.bean.Student">
+		<constructor-arg value="10"></constructor-arg>
+		<constructor-arg value="Roger"></constructor-arg>
+	</bean>
+
+	<bean id="address1" class="com.learn.spring.SpringHelloWorld.bean.Address">
+		<constructor-arg value="21,Chicago"></constructor-arg>
+		<constructor-arg value="Illionis"></constructor-arg>
+		<constructor-arg value="IL"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
+	</bean>
+
+	<bean id="s2" class="com.learn.spring.SpringHelloWorld.bean.Student"
+		parent="s1">
+		<constructor-arg ref="address1"></constructor-arg>
+	</bean>
+</beans>

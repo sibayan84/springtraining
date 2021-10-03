@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<!-- This will create ambiguity since 152 can be interpreted as int -->
+	 
+	<bean id="ConstructorConfusionBean"
+		class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean">
+		<constructor-arg value="Alex" />
+		<constructor-arg value="152" />
+		<constructor-arg value="25" />
+	</bean>
+	
+	<!-- This definition will not cause ambiguity since 152/6 is not int -->
+	<!-- 
+	<bean id="ConstructorConfusionBean"
+		class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean">
+		<constructor-arg value="Alex" />
+		<constructor-arg value="152/6" />
+		<constructor-arg value="25" />
+	</bean>
+	-->
+	<!-- The following definitions remove ambiguity -->
+	<!-- 
+	<bean id="ConstructorConfusionBean" class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean"> 
+		<constructor-arg index="0" value="Alex"/> <constructor-arg index="2" value="152"/> 
+		<constructor-arg index="1" value="25"/> 
+	</bean> 
+	-->
+	<!-- 
+	<bean id="ConstructorConfusionBean" class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean"> 
+		<constructor-arg type="java.lang.String" value="Alex"/> <constructor-arg 
+		type="java.lang.String" value="152"/> <constructor-arg type="int" value="25"/> 
+	</bean> 
+	-->
+</beans>

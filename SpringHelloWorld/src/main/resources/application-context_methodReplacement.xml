@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	
+	<bean id="break" class="com.learn.spring.SpringHelloWorld.bean.NewBreak" />
+
+	<bean id="car" class="com.learn.spring.SpringHelloWorld.bean.Car">
+		<replaced-method name="breaks" replacer="break" />
+	</bean>
+	
+</beans>

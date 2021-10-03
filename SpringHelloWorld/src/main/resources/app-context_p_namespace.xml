@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  Traditional approach-->
+	<!--
+	<bean id="s1" class="com.learn.spring.SpringHelloWorld.bean.Student">
+		<property name="id" value="1" />
+		<property name="name" value="John" />
+		<property name="address" ref="address1" />
+	</bean>
+
+	<bean id="address1" class="com.learn.spring.SpringHelloWorld.bean.Address">
+		<property name="addressLine1" value="Baker Street" />
+		<property name="city" value="Atlanta" />
+		<property name="state" value="Georgia" />
+		<property name="country" value="USA" />
+	</bean>
+	-->
+
+	<!--  p:namespace approach is more compact-->
+	<bean id="s1" class="com.learn.spring.SpringHelloWorld.bean.Student"
+		p:id="1" p:name="John" p:address-ref="address1" />
+
+	<bean id="address1" class="com.learn.spring.SpringHelloWorld.bean.Address"
+		p:addressLine1="Baker Street" p:city="Atlanta" p:state="Georgia" p:country="USA" />
+
+</beans>

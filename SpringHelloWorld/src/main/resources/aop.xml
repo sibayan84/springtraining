@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     	http://www.springframework.org/schema/aop
+     	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<aop:config>
+		<aop:pointcut id="queryCountOperation"
+            expression="execution(* com.learn.spring.SpringHelloWorld.aop.SchoolReception.*(..))" />
+            
+         <aop:pointcut id="financeAccessCheckOperation"
+            expression="execution(* com.learn.spring.SpringHelloWorld.aop.SchoolFinanceDesk.get*(..))" />
+            
+         <aop:aspect id="queryCounterAspect" ref="queryCounterAspectBean">
+            <!-- advises -->
+            <aop:before pointcut-ref="queryCountOperation" method="incrementCounter" />
+        </aop:aspect>
+        
+        <aop:aspect id="financeAccessCheckAspect" ref="financeAccessCheckAspectBean">
+            <aop:before pointcut-ref="financeAccessCheckOperation" method="checkAccess" />
+        </aop:aspect>   
+        
+        <aop:aspect id="exceptionLoggingAspect" ref="exceptionLoggerAspectBean">
+            <aop:after-throwing pointcut-ref="queryCountOperation" method="logException" throwing="excptn" />
+        </aop:aspect>
+	</aop:config>
+
+
+	 <!-- Spring AOP aspect instances -->
+    <bean id="queryCounterAspectBean" class="com.learn.spring.SpringHelloWorld.aop.QueryCounter" />
+    <bean id="financeAccessCheckAspectBean" class="com.learn.spring.SpringHelloWorld.aop.FinanceAccessCheck" />
+    <bean id="exceptionLoggerAspectBean" class="com.learn.spring.SpringHelloWorld.aop.ExceptionLogger" />
+    <!-- <bean id="transactionAspectBean" class="com.howtodoinjava.demo.aop.EmployeeCRUDTransactionAspect" />-->
+     
+    <!-- Target Object -->
+    <bean id="schoolFinance" class="com.learn.spring.SpringHelloWorld.aop.SchoolFinanceDesk" />
+    <bean id="schoolReception" class="com.learn.spring.SpringHelloWorld.aop.SchoolReception">
+    	<property name="financeDesk" ref="schoolFinance" />
+    </bean>
+    
+
+
+</beans>

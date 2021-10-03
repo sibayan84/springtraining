@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+   	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd"
+   >
+	
+	<!-- <context:property-placeholder location="classpath:file1.properties,file2.properties,file:\\\C:\\sibadata\\personal\\training\\spring\\properties\\external.properties" />-->
+	<!-- <context:property-placeholder location="file:\\\C:\\sibadata\\personal\\training\\spring\\properties\\external.properties" />-->
+	
+	<bean id="appProperty"
+	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="locations"> 
+		<list>
+			<value>classpath:file1.properties</value>
+			<value>classpath:file2.properties</value>
+			<value>file:\\\C:\\sibadata\\personal\\training\\spring\\properties\\external.properties</value>
+		</list>
+	</property>
+</bean>
+
+	<!--  	
+	<bean name="helloPropertyBean" class="com.learn.spring.SpringHelloWorld.bean.HelloPropertyBean" init-method="init" destroy-method="destroy">
+        <constructor-arg index="0" value="${db.host.url}"/>
+        <constructor-arg index="1" value="${target}"/>
+        <constructor-arg index="2" value="${language}"/>
+    </bean>
+	-->
+	  
+	<bean id="helloPropertyBean" class="com.learn.spring.SpringHelloWorld.bean.HelloPropertyBean" init-method="init" destroy-method="destroy">
+        <property name="url" value="${db.host.url}" />
+        <property name="target" value="${target}" />
+        <property name="language" value="${language}" />
+    </bean>
+    
+
+</beans>

@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="beanFactoryPostProcessorImpl"
+		class="com.learn.spring.SpringHelloWorld.bean.BeanFactoryPostProcessorImpl" />
+
+	<bean id="helloBean" name="helloSpring,helloWorldSpring"
+		class="com.learn.spring.SpringHelloWorld.bean.HelloBean" scope="singleton"
+		init-method="init" destroy-method="destroy">
+		<property name="name" value="Spring Is Magic" />
+	</bean>
+
+	<bean id="address" class="com.learn.spring.SpringHelloWorld.bean.Address">
+		<property name="addressLine1" value="${property.addressLine1}" />
+		<property name="city" value="${property.city}" />
+		<property name="state" value="${property.state}" />
+		<property name="country" value="${property.country}" />
+	</bean>
+
+
+	<!-- <bean id="helloBean" name="helloSpring,helloWorldSpring" class="com.learn.spring.SpringHelloWorld.bean.HelloBean" 
+		scope="prototype" init-method="init" destroy-method="destroy"> <property 
+		name="name" value="Spring Is Magic" /> </bean> -->
+
+
+</beans>

@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="us_address" class="com.learn.spring.SpringHelloWorld.bean.AddressFactoryBean">
+		<property name="country" value="USA" />
+	</bean>
+
+	<bean id="ger_address" class="com.learn.spring.SpringHelloWorld.bean.AddressFactoryBean">
+		<property name="country" value="Germany" />
+	</bean>
+	
+	<bean id="rest_of_world_address" class="com.learn.spring.SpringHelloWorld.bean.AddressFactoryBean">
+		<property name="country" value="Other" />
+	</bean>
+	
+</beans>
