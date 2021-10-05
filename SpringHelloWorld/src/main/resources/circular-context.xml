@@ -9,14 +9,14 @@
 	
 	<bean id="CircularDependency1Bean" class="com.learn.spring.SpringHelloWorld.bean.CircularDependency1">
         
-        <constructor-arg index="0" ref="CircularDependency2Bean"/>
+       <!--  <constructor-arg index="0" ref="CircularDependency2Bean"/>  -->
         
-       <!-- <property name="cdependency2" ref="CircularDependency2Bean" /> -->
+        <property name="cdependency2" ref="CircularDependency2Bean" /> 
     </bean>
     
     <bean id="CircularDependency2Bean" class="com.learn.spring.SpringHelloWorld.bean.CircularDependency2">
-    	<constructor-arg index="0" ref="CircularDependency2Bean"/>
-       <!-- <property name="cdependency1" ref="CircularDependency1Bean" /> -->
+    <!-- <constructor-arg index="0" ref="CircularDependency1Bean"/> -->
+        <property name="cdependency1" ref="CircularDependency1Bean" /> 
     </bean>
 
 </beans>

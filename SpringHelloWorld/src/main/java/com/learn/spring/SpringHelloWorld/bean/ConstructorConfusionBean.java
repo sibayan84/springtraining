@@ -21,12 +21,14 @@ public class ConstructorConfusionBean {
 	
 
 	public ConstructorConfusionBean(String employeeName, int employeeAge, String employeeApartmentNo) {
+		System.out.println("Constructor1");
 		this.employeeName = employeeName;
 		this.employeeAge = employeeAge;
 		this.employeeApartmentNo = employeeApartmentNo;
 	}
 	
 	public ConstructorConfusionBean(String employeeName, String employeeApartmentNo, int employeeAge) {
+		System.out.println("Constructor2");
 		this.employeeName = employeeName;
 		this.employeeApartmentNo = employeeApartmentNo;
 		this.employeeAge = employeeAge;

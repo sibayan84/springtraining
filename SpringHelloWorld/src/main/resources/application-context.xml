@@ -5,17 +5,17 @@
 	
 	  <bean id="customBeanPostProcessor"
                class="com.learn.spring.SpringHelloWorld.bean.CustomBeanPostProcessor" />
-	  
+	<!--   
 	 <bean id="helloBean" name="helloSpring,helloWorldSpring" class="com.learn.spring.SpringHelloWorld.bean.HelloBean" scope="singleton" init-method="init" destroy-method="destroy">
         <property name="name" value="Spring Is Magic" />
     </bean>
+    -->
     
-    
-    <!--  
+      
    	<bean id="helloBean" name="helloSpring,helloWorldSpring" class="com.learn.spring.SpringHelloWorld.bean.HelloBean" scope="prototype" init-method="init" destroy-method="destroy">
         <property name="name" value="Spring Is Magic" />
     </bean>
-    -->
+    
     
 
 </beans>

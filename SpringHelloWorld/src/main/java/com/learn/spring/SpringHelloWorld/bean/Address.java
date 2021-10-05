@@ -20,6 +20,7 @@ public class Address {
 	}
 
 	public void setAddressLine1(String addressLine1) {
+		System.out.println("Setting AddressLine 1");
 		this.addressLine1 = addressLine1;
 	}
 

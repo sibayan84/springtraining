@@ -17,6 +17,7 @@ public class PropertyAndLifecycleDemo {
 		System.out.println("URL="+obj.getUrl());
 		System.out.println("Target="+obj.getTarget());
 		System.out.println("Language="+obj.getLanguage());
+		System.out.println("ApplicationContext="+obj.getApplicationContext());
 		
 		System.out.println(obj);
 		context.close();

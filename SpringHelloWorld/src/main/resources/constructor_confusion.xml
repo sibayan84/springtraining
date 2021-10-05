@@ -7,15 +7,16 @@
 
 	<!-- This will create ambiguity since 152 can be interpreted as int -->
 	 
-	<bean id="ConstructorConfusionBean"
+	<!-- <bean id="ConstructorConfusionBean"
 		class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean">
 		<constructor-arg value="Alex" />
 		<constructor-arg value="152" />
 		<constructor-arg value="25" />
 	</bean>
+	-->
 	
 	<!-- This definition will not cause ambiguity since 152/6 is not int -->
-	<!-- 
+	<!--  
 	<bean id="ConstructorConfusionBean"
 		class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean">
 		<constructor-arg value="Alex" />
@@ -23,17 +24,22 @@
 		<constructor-arg value="25" />
 	</bean>
 	-->
+	
 	<!-- The following definitions remove ambiguity -->
-	<!-- 
+	
+	<!--  
 	<bean id="ConstructorConfusionBean" class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean"> 
-		<constructor-arg index="0" value="Alex"/> <constructor-arg index="2" value="152"/> 
+		<constructor-arg index="0" value="Alex"/>
+		 <constructor-arg index="2" value="152"/> 
 		<constructor-arg index="1" value="25"/> 
 	</bean> 
 	-->
-	<!-- 
+	
+	 
 	<bean id="ConstructorConfusionBean" class="com.learn.spring.SpringHelloWorld.bean.ConstructorConfusionBean"> 
-		<constructor-arg type="java.lang.String" value="Alex"/> <constructor-arg 
-		type="java.lang.String" value="152"/> <constructor-arg type="int" value="25"/> 
+		<constructor-arg type="java.lang.String" value="Alex"/> 
+		<constructor-arg type="java.lang.String" value="152"/>
+		<constructor-arg type="int" value="25"/> 
 	</bean> 
-	-->
+	
 </beans>

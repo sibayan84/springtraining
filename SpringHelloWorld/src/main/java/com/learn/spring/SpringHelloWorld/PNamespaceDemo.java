@@ -9,10 +9,12 @@ public class PNamespaceDemo {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-context_p_namespace.xml");
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("app-context_p_namespace.xml");
 
 		Student s = (Student) ctx.getBean("s1");
 		s.show();
+		
+		ctx.close();
 
 	}
 

@@ -58,11 +58,15 @@ public class HelloPropertyBean implements ApplicationContextAware {
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
+	public void setApplicationContext(ApplicationContext ctx) throws BeansException {
 		System.out.println("HelloPropertyBean setApplicationContext");
 		this.ctx=ctx;
 	}
 	
+	
+	public ApplicationContext getApplicationContext() {
+		return this.ctx;
+	}
 	
 
 }

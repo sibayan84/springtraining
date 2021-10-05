@@ -9,7 +9,7 @@
 	
 	<!-- <context:property-placeholder location="classpath:file1.properties,file2.properties,file:\\\C:\\sibadata\\personal\\training\\spring\\properties\\external.properties" />-->
 	<!-- <context:property-placeholder location="file:\\\C:\\sibadata\\personal\\training\\spring\\properties\\external.properties" />-->
-	
+	<!-- 
 	<bean id="appProperty"
 	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 	<property name="locations"> 
@@ -20,7 +20,7 @@
 		</list>
 	</property>
 </bean>
-
+-->
 	<!--  	
 	<bean name="helloPropertyBean" class="com.learn.spring.SpringHelloWorld.bean.HelloPropertyBean" init-method="init" destroy-method="destroy">
         <constructor-arg index="0" value="${db.host.url}"/>

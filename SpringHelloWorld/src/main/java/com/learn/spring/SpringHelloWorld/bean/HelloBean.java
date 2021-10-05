@@ -3,6 +3,10 @@ package com.learn.spring.SpringHelloWorld.bean;
 public class HelloBean {
 
 	private String name;
+	
+	public HelloBean() {
+		System.out.println("HelloBean constructor..");
+	}
 
 	public void setName(String name) {
 		this.name = name;
