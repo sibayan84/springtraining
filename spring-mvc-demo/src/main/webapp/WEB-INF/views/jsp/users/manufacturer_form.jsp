@@ -13,7 +13,7 @@
 
 	<c:choose>
 		<c:when test="${manufacturerForm['new']}">
-			<h1>Add Manufacturer</h1>
+			<h1>Add Manufacture11r</h1>
 		</c:when>
 		<c:otherwise>
 			<h1>Update Manufacturer</h1>
@@ -21,11 +21,22 @@
 	</c:choose>
 	<br />
 
-	<spring:url value="/manufacturers" var="mfActionUrl" />
+	<spring:url value="/manufacturers/create" var="mfActionUrl" />
 
 	<form:form class="form-horizontal" method="post" modelAttribute="manufacturerForm" action="${mfActionUrl}">
-
-		<form:hidden path="id" />
+		
+	
+	<form:hidden path="id" />
+	
+		<spring:bind path="code">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="col-sm-2 control-label">Code</label>
+				<div class="col-sm-10">
+					<form:input path="code" type="text" class="form-control " id="code" placeholder="Code" />
+					<form:errors path="code" class="control-label" />
+				</div>
+			</div>
+		</spring:bind>
 
 		<spring:bind path="name">
 			<div class="form-group ${status.error ? 'has-error' : ''}">

@@ -1,14 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body onload='document.loginForm.username.focus();'>
-    <h1>Spring Security 5 - Login Form</h1>
+    <h1>Spring Security 5 - Custom Login Form</h1>
  
     <c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
  
     <form name='login' action="/spring-mvc-demo/login" method='POST'>
         <table>
             <tr>
-                <td>UserName123:</td>
+                <td>UserName:</td>
                 <td><input type='text' name='username' value=''></td>
             </tr>
             <tr>

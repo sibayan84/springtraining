@@ -14,11 +14,11 @@
 
 <spring:url value="/" var="urlHome" />
 <spring:url value="/users/add" var="urlAddUser" />
-<spring:url value="/manufacturers" var="urllistManufacturer" />
+<spring:url value="/manufacturers/list" var="urllistManufacturer" />
 <spring:url value="/categories" var="urllistCategory" />
 <spring:url value="/products" var="urllistProduct" />
 <spring:url value="/dologout" var="urllogout" />
-<spring:url value="/categoryAndManufacturer/create" var="urlCategoryAndManufacturer" />
+<spring:url value="/categoryAndManufacturer/showform" var="urlCategoryAndManufacturer" />
 <sec:authentication var="principal" property="principal" />
 
 <nav class="navbar navbar-inverse ">
@@ -49,17 +49,13 @@
 				<li class="active"><a href="?language=de">German</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="${urlAddUser}">User</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="${urllistManufacturer}"><spring:message code="manufaturer"/></a></li>
 			</ul>
+			<!-- 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="${urlCategoryAndManufacturer}"><spring:message code="categoryAndmanufaturer"/></a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="${urllistProduct}"><spring:message code="product"/></a></li>
-			</ul>
+			-->
 		</div>
 	</div>
 </nav>

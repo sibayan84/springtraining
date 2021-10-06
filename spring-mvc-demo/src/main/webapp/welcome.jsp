@@ -20,6 +20,7 @@
 <body>
 
 	<spring:url value="/dologin" var="loginUrl" />
+	<spring:url value="/manufacturers/list" var="exploreMoreUrl" />
 
 	<nav class="navbar navbar">
 		<div class="container">
@@ -39,8 +40,8 @@
 				</ul>
 			</div>
 			<div class="alert alert-${css} alert-dismissible" role="alert">
-				Please Login to learn more
-				<button class="btn btn-info" onclick="location.href='${loginUrl}'">Login</button>
+				 
+				<button class="btn btn-info" onclick="location.href='${exploreMoreUrl}'">Explore More</button>
 			</div>
 		</div>
 	</nav>

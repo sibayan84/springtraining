@@ -9,6 +9,8 @@
 <jsp:include page="../fragments/header.jsp" />
 
 <body>
+    
+	<spring:url value="/manufacturers/showform" var="createmfUrl" />
 
 	<div class="container">
 
@@ -22,7 +24,8 @@
 		</c:if>
 
 		<h1><spring:message code="title_listmanufacturer"/></h1>
-
+        <button class="btn btn-info" onclick="location.href='${createmfUrl}'"><spring:message code="create"/></button>
+        
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -43,10 +46,9 @@
 					<td>${mf.email}</td>
 					<td>${mf.phone}</td>
 					<td>
-						<spring:url value="/manufacturers/${mf.id}" var="querymfUrl" />
+						<spring:url value="/manufacturers/${mf.id}/list" var="querymfUrl" />
 						<spring:url value="/manufacturers/${mf.id}/delete" var="deletemfUrl" /> 
-						<spring:url value="/manufacturers/${mf.id}/update" var="updatemfUrl" />
-
+						<spring:url value="/manufacturers/${mf.id}/showform" var="updatemfUrl" />
 						<button class="btn btn-info" onclick="location.href='${querymfUrl}'"><spring:message code="query"/></button>
 						<button class="btn btn-primary" onclick="location.href='${updatemfUrl}'"><spring:message code="update"/></button>
 						<button class="btn btn-danger" onclick="this.disabled=true;post('${deletemfUrl}')"><spring:message code="delete"/></button></td>

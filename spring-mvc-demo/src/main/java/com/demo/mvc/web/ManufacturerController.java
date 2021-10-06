@@ -25,7 +25,7 @@ import com.demo.mvc.service.UserService;
 import com.demo.mvc.validator.ManufacturerFormValidator;
 
 @Controller
-@RequestMapping(value = "/manufacturers")
+//@RequestMapping(value = "/manufacturers/")
 public class ManufacturerController {
 	
 	private final Logger logger = LoggerFactory.getLogger(ManufacturerController.class);
@@ -42,14 +42,14 @@ public class ManufacturerController {
 		binder.setValidator(mfValidator);
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "/manufacturers")
 	public String index(Model model) {
 		logger.info("Entered index....");
-		return "redirect:/manufacturers/";
+		return "redirect:/manufacturers/list";
 	}
 	
 	// list page
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/manufacturers/list", method = RequestMethod.GET)
 	public String listAllManufacturers(Model model) {
 		logger.info("Entered listAllManufacturers....");	
 		SecurityContext securityContext=SecurityContextHolder.getContext();
@@ -63,26 +63,26 @@ public class ManufacturerController {
 	}
 
 	// show update form
-	@RequestMapping(value = "/{id}/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/manufacturers/{id}/showform", method = RequestMethod.GET)
 	public String showUpdateManufacturerForm(@PathVariable("id") int id, Model model) {
-
 		logger.info("Entered showUpdateManufacturerForm with id " + id);
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		logger.info("Principal is "+principal);
-
 		Manufacturer mf = appService.findById(id);
 		logger.info("Manufacturer Details = " + mf);
-
 		model.addAttribute("manufacturerForm", mf);
-
-		// populateDefaultModel(model);
-
 		return "users/manufacturer_form";
-
 	}
+	
+	// show update form
+	@RequestMapping(value = "/manufacturers/showform", method = RequestMethod.GET)
+	public String showCreateManufacturerForm(Model model) {
+		logger.info("Entered showCreateManufacturerForm with ");
+		Manufacturer mf = new Manufacturer();
+		model.addAttribute("manufacturerForm", mf);
+		return "users/manufacturer_form";
+	}	
 
 	// save or update Manufacturer
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/manufacturers/create", method = RequestMethod.POST)
 	public String saveOrUpdateManufacturer(@ModelAttribute("manufacturerForm") @Validated Manufacturer mf,
 			BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 
@@ -99,12 +99,12 @@ public class ManufacturerController {
 				redirectAttributes.addFlashAttribute("msg", "Manufacturer updated successfully!");
 			}
 			appService.saveOrUpdate(mf);
-			return "redirect:/manufacturers/";
+			return "redirect:/manufacturers/list";
 		}
 	}
 
 	// show manufacturer
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/manufacturers/{id}/list", method = RequestMethod.GET)
 	public String showManufacturer(@PathVariable("id") int id, Model model) {
 
 		logger.info("showManufacturer() id: {}", id);
@@ -121,7 +121,7 @@ public class ManufacturerController {
 	}
 
 	// delete manufacturer
-	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/manufacturers/{id}/delete", method = RequestMethod.POST)
 	public String deleteManufacturer(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
 
 		logger.info("deleteManufacturer() : {}", id);

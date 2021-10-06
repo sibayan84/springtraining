@@ -13,7 +13,9 @@
 		infrastructure -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven >
+		<mvc:path-matching suffix-pattern="false" trailing-slash="false" />
+	</mvc:annotation-driven>
 
 	<!-- Scan the JavaConfig -->
 	<context:component-scan base-package="com.demo.mvc" />

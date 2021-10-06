@@ -47,14 +47,14 @@ public class CategoryManufacturerController {
 	}
 
 	// show  form to insert
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	@RequestMapping(value = "/showform", method = RequestMethod.GET)
 	public String showAddForm(Model model) {
 		logger.info("Entered showAddForm ....");
 		model.addAttribute("cmform", new CategoryAndManufacturer());
 		return "users/category_manufacturer_form";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String saveCategoryManufacturer(@ModelAttribute("cmform") @Validated CategoryAndManufacturer cmf,
 			BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 
@@ -67,7 +67,7 @@ public class CategoryManufacturerController {
 			cmfService.save(cmf);
 			redirectAttributes.addFlashAttribute("css", "success");
 			redirectAttributes.addFlashAttribute("msg", "Manufacturer added successfully!");
-			return "redirect:/categoryAndManufacturer/create/";
+			return "redirect:/categoryAndManufacturer/showform/";
 		}
 	}
 

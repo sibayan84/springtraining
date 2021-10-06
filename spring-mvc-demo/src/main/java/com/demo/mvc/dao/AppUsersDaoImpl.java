@@ -23,7 +23,7 @@ public class AppUsersDaoImpl {
 	NamedParameterJdbcTemplate jtemplate;
 
 	public AppUser findByUsername(String userName) {
-		logger.info("Inside findManufacturerById..");
+		logger.info("Inside findByUsername..");
 
 		String sql = "select * FROM app_users WHERE username=:userName";
 

@@ -26,13 +26,28 @@
         <security:intercept-url pattern="/login" access="permitAll" />
         <security:intercept-url pattern="/logout" access="permitAll" />
         <security:intercept-url pattern="/accessdenied" access="permitAll" />
+        <security:intercept-url pattern="/welcome.jsp" access="permitAll" />
         <security:intercept-url pattern="/resources/*" access="permitAll" />
-        <security:intercept-url pattern="/manufacturers/*" access="hasRole('ROLE_USER')" />
+        
+        <security:intercept-url pattern="/manufacturers/*/delete" access="hasRole('ROLE_USER')" />
+         <security:intercept-url pattern="/manufacturers/*" access="hasRole('ROLE_USER')" />
+         
+        
+        <!-- 
+        <security:intercept-url pattern="/manufacturers" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/list" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/*/create" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/*/showform" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/showform" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/create" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/manufacturers/*/list" access="hasRole('ROLE_USER')" />
+        -->
+       
        <!-- <security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" /> -->
        <!-- <security:form-login default-target-url="/manufacturers" authentication-failure-url="/accessdenied" auth />--> 
        <!-- <security:logout logout-success-url="/logout" />-->
         <security:form-login login-page='/dologin'
-        	 default-target-url="/manufacturers" 
+        	 default-target-url="/manufacturers/list" 
      		 authentication-failure-url="/accessdenied?error=true" />
     	
     </security:http>

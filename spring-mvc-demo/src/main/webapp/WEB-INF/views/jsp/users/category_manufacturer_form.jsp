@@ -24,7 +24,7 @@
 	
 	<br />
 
-	<spring:url value="/categoryAndManufacturer/" var="cmfActionUrl" />
+	<spring:url value="/categoryAndManufacturer/create" var="cmfActionUrl" />
 
 	<form:form class="form-horizontal" method="post" modelAttribute="cmform" action="${cmfActionUrl}">
 
