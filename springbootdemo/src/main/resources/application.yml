@@ -1,0 +1,32 @@
+server:
+  port: 8085
+management:
+  server:
+    port: 8086
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled:true
+logging:
+  level:
+    root: DEBUG
+    #org:
+     # springframework:
+      #  web: DEBUG
+message:
+  livereload: Welcome RameshSardar
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+message:
+  livereload: Welcome Ramesh to Dev Profile World
